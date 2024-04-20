@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import React, { useState, useEffect } from "react";
 
 const About = () => {
@@ -61,6 +62,7 @@ const About = () => {
           Start Generating
         </button>
         <button onClick={reset}>Reset</button>
+        <Button variant="outline">Button</Button>
       </div>
     </div>
   );
