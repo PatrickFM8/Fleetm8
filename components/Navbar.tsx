@@ -1,11 +1,19 @@
-
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 
 import Container from "./Container";
 import Logo from "./Logo";
+import fetchNavitems from "@/lib/fetchNavitems";
+import { Navitems } from "@/lib/sanityTypes";
+import { useNavitems } from "@/hooks/useNavitems";
 
-const Navbar = () => {
+export const revalidate = 60;
+interface navitemProps {
+  navitems: Navitems[] | [];
+}
+const Navbar: React.FC<navitemProps> = ({ navitems }) => {
+  console.log("navitems", navitems);
   return (
     <nav className="w-full  bg-black text-white py-4 flex items-center justify-between">
       <Container>
@@ -16,18 +24,23 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/blog" 
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-bold">BLOGS
+          <div className="flex-1 items-center">
+            <div className="flex tems-center py-2 justify-center space-x-4">
+              {navitems?.map((navitem) => (
+                <Link
+                  key={navitem?._id}
+                  href={navitem?.url}
+                  className="text-white hover:text-gray-300"
+                >
+                  {navitem?.title}
                 </Link>
-                {/* Add more links if needed */}
-              </div>
+              ))}
+            </div>
           </div>
 
           <div>
             <Button variant="secondary" className="float-right">
-              CTA BUTTON{" "} 
+              CTA BUTTON{" "}
             </Button>
           </div>
         </div>

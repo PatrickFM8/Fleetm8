@@ -26,13 +26,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroSection }) => {
             heroSection?.imageAlignment === "right" ? "end" : "start"
           } items-center`}
         >
-          <Image
-            src={urlForImage(heroSection?.image.asset)}
-            alt="Picture"
-            width={200}
-            height={200}
-            className="w-full h-full md:w-auto md:h-auto object-cover"
-          />
+          {heroSection?.image && (
+            <Image
+              src={urlForImage(heroSection?.image.asset)}
+              alt={heroSection.title}
+              width={500}
+              height={500}
+            />
+          )}
         </div>
 
         {/* Headline and Button */}
@@ -47,11 +48,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroSection }) => {
             href={{
               pathname: "/feature/${feature._id}",
               query: {
-                id: heroSection._id,
-                title: heroSection.title,
-                summary: heroSection.summary,
-                createdAT: heroSection._createdAt,
-                subtitle: heroSection.subtitle,
+                id: heroSection?._id,
+                title: heroSection?.title,
+                summary: heroSection?.summary,
+                createdAT: heroSection?._createdAt,
+                subtitle: heroSection?.subtitle,
               },
             }}
             className="bg-black text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm"

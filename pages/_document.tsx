@@ -6,13 +6,10 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head/>
-      <Navbar />
-      <Container>
         <body className="bg-[#f4f1ea] text-gray-900 dark:bg-slate-800 dark:text-slate-100">
           <Main />
           <NextScript />
         </body>
-      </Container>
     </Html>
   );
 }

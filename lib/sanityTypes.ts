@@ -16,7 +16,7 @@ interface Image {
 export interface Author {
   _type: "reference";
   _ref: string;
-  name:string
+  name: string;
 }
 
 export interface Post extends SanityBody {
@@ -41,4 +41,10 @@ export interface Feature extends SanityBody {
   buttonText: string;
   linkToBuild: string;
   imageAlignment: "left" | "right";
+}
+
+export interface Navitems extends SanityBody {
+  title: string;
+  url: string;
+  hidden: boolean;
 }
