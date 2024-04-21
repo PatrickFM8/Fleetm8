@@ -5,17 +5,17 @@ import { Feature } from "@/lib/sanityTypes";
 import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/image";
 
-interface FeatureProps {
+interface HeroSectionProps {
   children?: React.ReactNode;
-  feature: Feature;
+  heroSection: Feature;
 }
 
-const FeatureComponent: React.FC<FeatureProps> = ({ feature }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ heroSection }) => {
   return (
     <div className={`mt-4`}>
       <div
         className={`flex py-4 ${
-          feature?.imageAlignment === "right"
+          heroSection?.imageAlignment == "right"
             ? "flex-col md:flex-row-reverse"
             : "flex-col md:flex-row"
         }`}
@@ -23,39 +23,40 @@ const FeatureComponent: React.FC<FeatureProps> = ({ feature }) => {
         {/* Image */}
         <div
           className={`w-full md:w-1/2 py-4 flex justify-${
-            feature?.imageAlignment === "right" ? "end" : "start"
+            heroSection?.imageAlignment === "right" ? "end" : "start"
           } items-center`}
         >
           <Image
-            src={urlForImage(feature?.image.asset)}
+            src={urlForImage(heroSection?.image.asset)}
             alt="Picture"
             width={200}
             height={200}
             className="w-full h-full md:w-auto md:h-auto object-cover"
           />
         </div>
-        {/* Awesome Headline and Button */}
+
+        {/* Headline and Button */}
         <div className="md:w-1/2 py-4  items-center">
-          <h1 className="font-medium text-2xl">{feature?.title}</h1>
-          <h1 className="font-medium text-2xl">{feature?.subtitle} </h1>
+          <h1 className="font-medium text-2xl">{heroSection?.title}</h1>
+          <h1 className="font-medium text-2xl">{heroSection?.subtitle} </h1>
           <br />
-          <p className="">{feature?.summary}</p>
+          <p className="">{heroSection?.summary}</p>
           <br />
           <br />
           <Link
             href={{
               pathname: "/feature/${feature._id}",
               query: {
-                id: feature._id,
-                title: feature.title,
-                summary: feature.summary,
-                createdAT: feature._createdAt,
-                subtitle: feature.subtitle,
+                id: heroSection._id,
+                title: heroSection.title,
+                summary: heroSection.summary,
+                createdAT: heroSection._createdAt,
+                subtitle: heroSection.subtitle,
               },
             }}
             className="bg-black text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm"
           >
-            {feature?.buttonText}{" "}
+            {heroSection?.buttonText}{" "}
           </Link>
         </div>
       </div>
@@ -63,4 +64,4 @@ const FeatureComponent: React.FC<FeatureProps> = ({ feature }) => {
   );
 };
 
-export default FeatureComponent;
+export default HeroSection;

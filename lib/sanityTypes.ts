@@ -40,5 +40,5 @@ export interface Feature extends SanityBody {
   summary: string;
   buttonText: string;
   linkToBuild: string;
-  ImageAlignment: "left" | "right";
+  imageAlignment: "left" | "right";
 }

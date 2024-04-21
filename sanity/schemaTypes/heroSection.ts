@@ -1,27 +1,22 @@
 import { defineField, defineType } from "sanity";
 
-export const feature = defineType({
-  name: "feature",
-  title: "Feature",
+export const heroSection = defineType({
+  name: "heroSection",
+  title: "Hero Section",
+  description: "Add only one",
   type: "document",
   fields: [
     defineField({
-      name: "order",
-      title: "Order",
-      type: "number",
-      initialValue: 0,
-    }),
-    defineField({
       name: "title",
       title: "Title",
-      description: "Title of the feature",
+      description: "Title of the hero section",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "subtitle",
       title: "SubTitle",
-      description: "Sub title of the feature",
+      description: "Sub title of the hero section",
       type: "string",
     }),
     defineField({
