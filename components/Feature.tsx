@@ -31,6 +31,9 @@ const FeatureComponent: React.FC<FeatureProps> = ({ feature }) => {
             alt="Picture"
             width={200}
             height={200}
+            quality={80}
+            priority={false}
+            placeholder={"empty"}
             className="w-full h-full md:w-auto md:h-auto object-cover"
           />
         </div>

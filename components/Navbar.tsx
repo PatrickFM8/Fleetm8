@@ -13,7 +13,6 @@ interface navitemProps {
   navitems: Navitems[] | [];
 }
 const Navbar: React.FC<navitemProps> = ({ navitems }) => {
-  console.log("navitems", navitems);
   return (
     <nav className="w-full  bg-black text-white py-4 flex items-center justify-between">
       <Container>

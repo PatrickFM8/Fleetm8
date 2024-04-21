@@ -32,6 +32,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroSection }) => {
               alt={heroSection.title}
               width={500}
               height={500}
+              priority={false}
+              quality={80}
+              placeholder={"empty"}
             />
           )}
         </div>

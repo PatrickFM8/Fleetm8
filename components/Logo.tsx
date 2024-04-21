@@ -15,7 +15,7 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ className }) => {
   return (
     <div className={className}>
-      <Image alt="logo" src={logo} width={40} height={40} />
+      <Image quality={80} priority={false} placeholder={"empty"} alt="logo" src={logo} width={40} height={40} />
     </div>
   );
 };
