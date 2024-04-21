@@ -10,7 +10,6 @@ export const useNavitems = () => {
       try {
         const fetchedNavitems = await fetchNavitems();
         setNavitems(fetchedNavitems);
-        console.log("fetchedNavitems", fetchedNavitems);
       } catch (error) {
         console.error("Error fetching navitems:", error);
       }
