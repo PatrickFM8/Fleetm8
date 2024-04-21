@@ -22,11 +22,10 @@ export default function Home() {
       <main
         className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}
       >
-        {/* Render hero section if available */}
         <Navbar navitems={navitems} />
         <Container>
+          {/* Render hero section if available */}
           {heroSection && <HeroSection heroSection={heroSection[0]} />}
-
           {/* Render features */}
           {features?.map((feature) => (
             <Feature key={feature._id} feature={feature} />
