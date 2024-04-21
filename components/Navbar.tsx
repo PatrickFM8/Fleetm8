@@ -4,9 +4,7 @@ import Link from "next/link";
 
 import Container from "./Container";
 import Logo from "./Logo";
-import fetchNavitems from "@/lib/fetchNavitems";
 import { Navitems } from "@/lib/sanityTypes";
-import { useNavitems } from "@/hooks/useNavitems";
 
 export const revalidate = 60;
 interface navitemProps {
