@@ -48,3 +48,10 @@ export interface Navitems extends SanityBody {
   url: string;
   hidden: boolean;
 }
+
+export interface Testimonials extends SanityBody {
+  name: string;
+  description: string;
+  image: Image;
+  hidden: boolean;
+}

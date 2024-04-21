@@ -6,14 +6,17 @@ import { category } from "./schemaTypes/category";
 import { blockContent } from "./schemaTypes/blockContent";
 import { heroSection } from "./schemaTypes/heroSection";
 import { navitems } from "./schemaTypes/navitems";
+import { testimonials } from "./schemaTypes/testimonials";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post,
+  types: [
+    post,
     author,
     category,
     blockContent,
     feature,
     heroSection,
-    navitems
+    navitems,
+    testimonials,
   ],
 };

@@ -7,6 +7,8 @@ import Navbar from "@/components/Navbar";
 import { useNavitems } from "@/hooks/useNavitems";
 import { useFeatures } from "@/hooks/useFeatures";
 import { useHeroSection } from "@/hooks/useHeroSection";
+import { useTestimonials } from "@/hooks/useTestimonials";
+import Tesimonials from "@/components/Tesimonials";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +18,7 @@ export default function Home() {
   const navitems = useNavitems();
   const features = useFeatures();
   const heroSection = useHeroSection();
+  const testimonials = useTestimonials();
 
   return (
     <Client>
@@ -26,6 +29,8 @@ export default function Home() {
         <Container>
           {/* Render hero section if available */}
           {heroSection && <HeroSection heroSection={heroSection[0]} />}
+          {/* Render testimonials section */}
+          <Tesimonials testimonials={testimonials} />
           {/* Render features */}
           {features?.map((feature) => (
             <Feature key={feature._id} feature={feature} />
