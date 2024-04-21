@@ -5,7 +5,7 @@ import { Feature } from "@/lib/sanityTypes";
 
 
 const query = groq`
-  *[_type == "feature"]
+*[_type == "feature" ] | order(order asc)
 `;
 
 type Data = {

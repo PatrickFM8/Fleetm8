@@ -6,10 +6,17 @@ export const feature = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "order",
+      title: "Order",
+      type: "number",
+      initialValue: 0,
+    }),
+    defineField({
       name: "title",
       title: "Title",
       description: "Title of the feature",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "subtitle",
