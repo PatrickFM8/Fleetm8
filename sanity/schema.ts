@@ -7,6 +7,7 @@ import { blockContent } from "./schemaTypes/blockContent";
 import { heroSection } from "./schemaTypes/heroSection";
 import { navitems } from "./schemaTypes/navitems";
 import { testimonials } from "./schemaTypes/testimonials";
+import { faqs } from "./schemaTypes/faqs";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -18,5 +19,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     heroSection,
     navitems,
     testimonials,
+    faqs,
   ],
 };

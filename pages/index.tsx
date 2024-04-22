@@ -9,6 +9,7 @@ import { useFeatures } from "@/hooks/useFeatures";
 import { useHeroSection } from "@/hooks/useHeroSection";
 import { useTestimonials } from "@/hooks/useTestimonials";
 import Tesimonials from "@/components/Tesimonials";
+import Faq from "@/components/Faq";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,6 +36,8 @@ export default function Home() {
           {features?.map((feature) => (
             <Feature key={feature._id} feature={feature} />
           ))}
+          {/* Render Faq Section */}
+          <Faq />
         </Container>
       </main>
     </Client>

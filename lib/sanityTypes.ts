@@ -43,8 +43,7 @@ export interface Feature extends SanityBody {
   imageAlignment: "left" | "right";
 }
 
-export interface HeroSection extends Feature {
-}
+export interface HeroSection extends Feature {}
 
 export interface Navitems extends SanityBody {
   title: string;
@@ -56,5 +55,11 @@ export interface Testimonials extends SanityBody {
   name: string;
   description: string;
   image: Image;
+  hidden: boolean;
+}
+
+export interface Faqs extends SanityBody {
+  question: string;
+  answer: string;
   hidden: boolean;
 }
