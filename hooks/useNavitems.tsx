@@ -8,8 +8,10 @@ export const useNavitems = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fetchedNavitems = await fetchNavitems();
-        setNavitems(fetchedNavitems);
+        const fetchedNavitems = await fetch('/api/navitems');
+        const data = await fetchedNavitems.json();
+        const navitems: Navitems[] = data.navitems;
+        setNavitems(navitems);
       } catch (error) {
         console.error("Error fetching navitems:", error);
       }

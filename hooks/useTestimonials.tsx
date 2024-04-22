@@ -7,8 +7,10 @@ export const useTestimonials = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fetchedTestimonials = await fetchTestomonials();
-        setTestimonials(fetchedTestimonials);
+        const fetchedTestimonials = await fetch('/api/testimonials');
+        const data = await fetchedTestimonials.json();
+        const testimonials: Testimonials[] = data.testimonials;
+        setTestimonials(testimonials);
       } catch (error) {
         console.error("Error fetching features:", error);
       }
