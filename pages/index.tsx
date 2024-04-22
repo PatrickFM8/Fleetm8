@@ -30,14 +30,15 @@ export default function Home() {
         <Container>
           {/* Render hero section if available */}
           {heroSection && <HeroSection heroSection={heroSection[0]} />}
-          {/* Render testimonials section */}
-          <Tesimonials testimonials={testimonials} />
+          
           {/* Render features */}
           {features?.map((feature) => (
             <Feature key={feature._id} feature={feature} />
           ))}
           {/* Render Faq Section */}
           <Faq />
+          {/* Render testimonials section */}
+          <Tesimonials testimonials={testimonials} />
         </Container>
       </main>
     </Client>

@@ -8,23 +8,32 @@ interface TestimonialsProps {
 }
 const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-8 mt-8">
-      {testimonials.map((testimonial, index) => (
+    <div>
+      <h1 className="mt-4 mr-20 w-full mx-auto border border-gray-400 h-.5" />
+      <h1 className="mt-16 justify-center text-center items-center text-2xl font-bold ">
+        TESTIMONIALS
+      </h1>
+      {testimonials?.map((test) => (
         <div
-          key={testimonial?._id}
-          className="flex flex-col bg-[#f4f1ea] p-4 border rounded"
+          key={test._id}
+          className="flex flex-col bg-white mt-8
+      items-center justify-center"
         >
-          <p className="mb-4">{testimonial.description}</p>
-          <div className="flex justify-center md:justify-start items-center">
-            <Image
-              src={urlForImage(testimonial?.image.asset)}
-              width={80}
-              height={80}
-              className="rounded-full w-16 h-16 mr-4"
-              alt={`testimonial-${index + 1} pic`}
-            />
-            <p>{testimonial.name}</p>
-          </div>
+          <Image
+            src={urlForImage(test?.image.asset)}
+            alt={test.name}
+            width={500}
+            height={500}
+            priority={false}
+            quality={80}
+            placeholder={"empty"}
+            className="w-16 h-16 rounded-full mb-4 mt-4"
+          />
+
+          <p className="flex text-center justify-center p-4">
+            {test.description}
+          </p>
+          <p className="text-center justify-center mb-4">{test.name}</p>
         </div>
       ))}
     </div>
