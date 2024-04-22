@@ -10,6 +10,7 @@ import { useHeroSection } from "@/hooks/useHeroSection";
 import { useTestimonials } from "@/hooks/useTestimonials";
 import Tesimonials from "@/components/Tesimonials";
 import Faq from "@/components/Faq";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,6 +40,7 @@ export default function Home() {
           <Faq />
           {/* Render testimonials section */}
           <Tesimonials testimonials={testimonials} />
+          <Footer />
         </Container>
       </main>
     </Client>
