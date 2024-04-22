@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import fetchTestomonials from "@/lib/fetchTestimonials";
 import { Testimonials } from "@/lib/sanityTypes";
 
 export const useTestimonials = () => {
