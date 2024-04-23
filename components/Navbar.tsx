@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
-
 import Container from "./Container";
 import Logo from "./Logo";
-import { Navitems } from "@/lib/sanityTypes";
+import { useNavitems } from "@/hooks/useNavitems";
 
 export const revalidate = 60;
-interface navitemProps {
-  navitems: Navitems[] | [];
-}
-const Navbar: React.FC<navitemProps> = ({ navitems }) => {
+
+const Navbar: React.FC = () => {
+  const navitems = useNavitems();
   return (
     <nav className="w-full  bg-black text-white py-4 flex items-center justify-between">
       <Container>

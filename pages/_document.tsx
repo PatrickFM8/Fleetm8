@@ -1,8 +1,11 @@
 import Container from "@/components/Container";
 import Navbar from "@/components/Navbar";
+import { useNavitems } from "@/hooks/useNavitems";
 import { Html, Head, Main, NextScript } from "next/document";
 
-export default function Document() {
+export default  function Document() {
+  const navitems =  useNavitems();
+  console.log('hello', navitems)
   return (
     <Html lang="en">
       <Head />

@@ -17,7 +17,6 @@ const inter = Inter({ subsets: ["latin"] });
 export const revalidate = 60;
 
 export default function Home() {
-  const navitems = useNavitems();
   const features = useFeatures();
   const heroSection = useHeroSection();
   const testimonials = useTestimonials();
@@ -27,7 +26,7 @@ export default function Home() {
       <main
         className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}
       >
-        <Navbar navitems={navitems} />
+        <Navbar />
         <Container>
           {/* Render hero section if available */}
           {heroSection && <HeroSection heroSection={heroSection[0]} />}
