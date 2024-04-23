@@ -21,12 +21,9 @@ export interface Author {
 
 export interface Post extends SanityBody {
   title: string;
-  slug: {
-    _type: "slug";
-    current: string;
-  };
+  slug: string;
   description: string;
-  body: [object];
+  body: string;
   mainImage: Image;
   author: Author;
   categories: [string];

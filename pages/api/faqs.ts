@@ -15,7 +15,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  //return 'abhimanyu';
   const faqs = await client.fetch(query);
   return res.status(200).json({ faqs });
 }
