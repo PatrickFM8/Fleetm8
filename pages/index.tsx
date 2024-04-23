@@ -11,6 +11,8 @@ import { useTestimonials } from "@/hooks/useTestimonials";
 import Tesimonials from "@/components/Tesimonials";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
+import Steps from "@/components/Steps";
+import CallToAction from "@/components/CallToAction";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,11 +32,14 @@ export default function Home() {
         <Container>
           {/* Render hero section if available */}
           {heroSection && <HeroSection heroSection={heroSection[0]} />}
-          
+          {/* Render 3 steps */}
+          <Steps />
           {/* Render features */}
           {features?.map((feature) => (
             <Feature key={feature._id} feature={feature} />
           ))}
+          {/* Render call to action */}
+          <CallToAction />
           {/* Render Faq Section */}
           <Faq />
           {/* Render testimonials section */}
