@@ -7,5 +7,4 @@ const fetchFeatures = async () => {
   const features: Feature[] = data.feature;
   return features;
 };
-
 export default fetchFeatures;
