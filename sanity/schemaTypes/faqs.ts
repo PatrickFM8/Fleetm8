@@ -27,5 +27,11 @@ export const faqs = defineType({
       type: "boolean",
       initialValue: false,
     }),
+    defineField({
+      name: "newfield",
+      title: "New",
+      type: "boolean",
+      initialValue: false,
+    }),
   ],
 });

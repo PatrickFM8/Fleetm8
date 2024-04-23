@@ -3,17 +3,34 @@ import Link from "next/link";
 import Container from "./Container";
 import Logo from "./Logo";
 import { useNavitems } from "@/hooks/useNavitems";
-
+import gsap from "gsap";
+import { useEffect, useRef } from "react";
 export const revalidate = 60;
 
 const Navbar: React.FC = () => {
   const navitems = useNavitems();
+  const targetRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const targetElement = targetRef.current;
+    if (!targetElement) return;
+    let tween: any = gsap.to(targetElement, {
+      duration: 2,
+      xPercent: 200,
+      rotation: 360,
+      ease: "back.inOut",
+      paused: true,
+      onComplete: () => tween.reverse(),
+    });
+    tween.play();
+  }, []);
+
   return (
     <nav className="w-full  bg-black text-white py-4 flex items-center justify-between">
       <Container>
         <div className="flex w-full justify-between ">
           <div className="flex items-center">
-            <Link href="/">
+            <Link ref={targetRef} href="/">
               <Logo className="float-left" />
             </Link>
           </div>
