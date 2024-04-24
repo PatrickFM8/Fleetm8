@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+//import { Inter } from "next/font/google";
 import Client from "@/components/Client";
 import Feature from "@/components/Feature";
 import HeroSection from "@/components/HeroSection";
@@ -14,8 +14,14 @@ import Footer from "@/components/Footer";
 import Steps from "@/components/Steps";
 import CallToAction from "@/components/CallToAction";
 import Head from 'next/head';
+import { Roboto } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+//const inter = Inter({ subsets: ["latin"] });
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+})
 
 export const revalidate = 60;
 
@@ -27,7 +33,7 @@ export default function Home() {
   return (
     <Client>
       <main
-        className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}
+        className={`flex min-h-screen flex-col items-center justify-between ${roboto.className}`}
       >
 
         <Head>
