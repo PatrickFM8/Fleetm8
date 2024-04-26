@@ -5,7 +5,8 @@ import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import React from "react";
 import Head from 'next/head';
-
+import Link from 'next/link';
+//import BlockContent from '@sanity/block-content-to-react';
 
 const Blog = () => {
   const posts = usePosts();
@@ -29,7 +30,26 @@ const Blog = () => {
               grid sm:grid-cols-1 md:grid-cols-2 gap-8
               "
           >
-            <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
+            console.log(post?._id);
+            
+            <h2 className="text-2xl font-bold mb-2">
+            <Link
+              href={{
+                pathname: `/blog/${index}`,
+                query: {
+                  id: post?._id,
+                  title: post?.title,
+                  //body: JSON.stringify(post),
+                  body: post?.body,
+                  createdAT: post?._createdAt,
+                
+                },
+              }}
+              className="text-black hover:text-gray-600 text-3xl"
+              >
+                <strong>{post?.title}</strong>
+              </Link>
+              </h2>
             <Image
               src={urlForImage(post?.mainImage.asset)}
               alt="Picture"
