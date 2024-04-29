@@ -4,42 +4,36 @@ import { Testimonials as testimonialsType } from "@/lib/sanityTypes";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import React from "react";
-import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { client } from "@/sanity/lib/client";
+import { useState, useEffect } from "react";
+//import { client } from "@/sanity/lib/client";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
 
 interface TestimonialsProps {
   testimonials: testimonialsType[];
 }
 const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 
-  const sliderRef = useRef<HTMLAnchorElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const slider = sliderRef.current;
-    //const testimonialCards = slider?.children;
-    //testimonial-card
-  
-    const tl = gsap.timeline({ repeat: -1});
-  
-    tl.to(slider, {
-      xPercent: -100,
-      opacity: 0,
-      duration: 2,
-      ease: 'power2.inOut',
-      delay: 3,
-      stagger: {
-        amount: 0, // No stagger, to slide one testimonial at a time
-        
-      },
-    })/* .to(slider, {
-      xPercent: 0, // Reset position
-      opacity: 1, // Show next testimonial
-      duration: 2, // Immediately show next testimonial
-      delay: 3, // Delay before sliding next testimonial
-    }); */
-  }, []);
-  
+    console.log("Setting up interval...");
+    const interval = setInterval(() => {
+    
+      setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 5000); // Change slide every 5 seconds
+
+    console.log("Clearing interval...");
+    return () => clearInterval(interval);
+    
+  }, [testimonials.length]);
   
   return (
     <div>
@@ -48,29 +42,44 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
         TESTIMONIALS
       </h1>
       
-      <div ref={sliderRef} className="slider">
-          {testimonials?.map((test) => (
-          <div 
-             key={test._id}
-             className="testimonial-card flex flex-col bg-white mt-8 items-center justify-center"
-             >
-             <Image
-                src={urlForImage(test?.image.asset)}
-                alt={test.name}
-                width={500}
-                height={500}
-                priority={false}
-                quality={80}
-                placeholder={"empty"}
-                className="w-16 h-16 rounded-full mb-4 mt-4"
-             />
+      <div >
 
-            <p className="flex text-center justify-center p-4">
-              {test.description}
-            </p>
-            <p className="text-center justify-center mb-4">{test.name}</p>
-          </div>
-           ))}
+         <Carousel>
+            <CarouselContent>
+               {testimonials?.map((test, index) => (
+              <CarouselItem key={test._id} style={{ display: index === activeIndex ? "block" : "none" }}>
+                
+              <div 
+                  
+                  className="flex flex-col bg-white mt-8 items-center justify-center"
+              >
+                      <Image
+                      src={urlForImage(test?.image.asset)}
+                      alt={test.name}
+                      width={500}
+                      height={500}
+                      priority={false}
+                      quality={80}
+                      placeholder={"empty"}
+                      className="w-16 h-16 rounded-full mb-4 mt-4"
+                      />
+
+                      <p className="flex text-center justify-center p-4">
+                      {test.description}
+                      </p>
+                      <p className="text-center justify-center mb-4">{test.name}</p>
+                </div>
+
+
+              </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel> 
+          
+    
+          
       </div>
      
     </div>
@@ -78,3 +87,4 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 };
 
 export default Testimonials;
+
