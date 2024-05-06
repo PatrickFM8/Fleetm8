@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Feature } from "@/lib/sanityTypes";
 import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/image";
+//import { ParallaxScroll } from "./ui/parallax-scroll";
+import { CardBody, CardContainer, CardItem } from "./ui/3d-card"
 
 interface HeroSectionProps {
   children?: React.ReactNode;
@@ -26,20 +28,31 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroSection }) => {
             heroSection?.imageAlignment === "right" ? "end" : "start"
           } items-center`}
         >
-          {heroSection?.image && (
-            <Image
-              src={urlForImage(heroSection?.image.asset)}
-              alt={heroSection.title}
-              width={500}
-              height={500}
-              priority={false}
-              quality={80}
-              placeholder={"empty"}
-            />
-          )}
+           {heroSection?.image && ( 
+            
+             <CardContainer className="inter-var">
+                 <CardBody className="bg-[#f4f1ea] relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+                  
+                    <CardItem translateZ="100" className="w-full mt-4">
+                        <Image
+                            src={urlForImage(heroSection?.image.asset)}
+                            alt={heroSection.title}
+                            width={500}
+                            height={500}
+                            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                            priority={false}
+                            quality={80}
+                            placeholder={"empty"}
+                          />
+                      </CardItem>
+        
+                </CardBody>
+              </CardContainer>
+            )}  
+        
         </div>
 
-        {/* Headline and Button */}
+            {/* Headline and Button */}
         <div className="md:w-1/2 py-4  items-center">
           <h1 className="font-medium text-2xl">{heroSection?.title}</h1>
           <h1 className="font-medium text-2xl">{heroSection?.subtitle} </h1>
@@ -69,3 +82,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroSection }) => {
 };
 
 export default HeroSection;
+
+
+

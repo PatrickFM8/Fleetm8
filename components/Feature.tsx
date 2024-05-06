@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Feature } from "@/lib/sanityTypes";
 import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/image";
+import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 
 interface FeatureProps {
   children?: React.ReactNode;
@@ -26,16 +27,32 @@ const FeatureComponent: React.FC<FeatureProps> = ({ feature }) => {
             feature?.imageAlignment === "right" ? "end" : "start"
           } items-center`}
         >
-          <Image
-            src={urlForImage(feature?.image.asset)}
-            alt="Picture"
-            width={200}
-            height={200}
-            quality={80}
-            priority={false}
-            placeholder={"empty"}
-            className="w-full h-full md:w-auto md:h-auto object-cover"
-          />
+
+          <CardContainer className="inter-var">
+              <CardBody className="bg-[#f4f1ea] relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black  w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+        
+                 <CardItem
+                    translateZ="100"
+                    rotateX={20}
+                    rotateZ={-10}
+                    className="w-full mt-4"
+                  >
+                    <Image
+                      src={urlForImage(feature?.image.asset)}
+                      alt="Picture"
+                      width={200}
+                      height={200}
+                      quality={80}
+                      priority={false}
+                      placeholder={"empty"}
+                      className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                    />
+                  </CardItem>
+        
+              </CardBody>
+           </CardContainer>
+
+
         </div>
         {/* Awesome Headline and Button */}
         <div className="md:w-1/2 py-4  items-center">

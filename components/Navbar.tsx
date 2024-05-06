@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "./ui/button";
 import Link from "next/link";
 import Container from "./Container";
@@ -5,6 +7,7 @@ import Logo from "./Logo";
 import { useNavitems } from "@/hooks/useNavitems";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
+import ThemeButton from "./ThemeButton";
 export const revalidate = 60;
 
 const Navbar: React.FC = () => {
@@ -48,9 +51,10 @@ const Navbar: React.FC = () => {
               ))}
             </div>
           </div>
+          <ThemeButton />
 
           <div>
-            <Button variant="secondary" className="float-right">
+            <Button variant="secondary" className="ml-8 float-right">
               CTA BUTTON{" "}
             </Button>
           </div>
