@@ -4,6 +4,8 @@
 import Container from "@/components/Container";
 //import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { clsx } from 'clsx';
+import { useRouter } from 'next/router';
+
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -12,35 +14,25 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
   } from "@/components/ui/breadcrumb"
-//import { fetchPosts } from "@/lib/fetchPosts";
 import { usePosts } from "@/hooks/usePosts";
-//import BlockContent from '@sanity/block-content-to-react';
+import Navbar from "@/components/Navbar";
+import Providers from "@/components/Providers";
 
 
-export default function Page({ searchParams }: { 
-    searchParams: { 
-        id: string,
-        title: string,
-        body: string,
-        createdAT: string,
+
+    export default function Page() {
+        const router = useRouter();
+        const { slug, title, body, createdAT } = router.query;
+
+       // console.log(slug, title, createdAT);
+
     
-    } }) {
-
-/*     // Parse the JSON string into an object
-    const parsedObject = JSON.parse(searchParams.body);
-
-    // Extract the text from the object
-    const text = parsedObject.body[0].children[0].text;
-    
-
-    console.log(text); */
-
-    const text = "Test text!";
     return (
         <div>
 
-            
-            <Container>
+          <Providers>
+             <Navbar />
+             <Container>
                 <div className="container mx-auto p-4">
                 
                 <Breadcrumb className="mt-4">
@@ -54,24 +46,23 @@ export default function Page({ searchParams }: {
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                            <BreadcrumbPage>{searchParams?.title}</BreadcrumbPage>
+                            <BreadcrumbPage>{slug}</BreadcrumbPage>
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
                 
 
-
-                    <p className="mt-20">My Post: {searchParams?.id} </p>
-
-                    <p className="pt-4">Created: {searchParams?.createdAT}</p>
+                    <div className="flex flex-col">
+                    <p className="flex justify-center text-2xl font-bold pt-8"> {title}</p> 
+                    <p className="flex justify-center pt-2">Created: {createdAT}</p>                    
                     <br />
-                    <p className="text-2xl bold pt-4"> {searchParams?.title}</p>
-
-                    <p className="pt-8">{text}</p>
+                
+                    <p className="pt-8">{body}</p>
+                    </div>
                 </div>                    
-            </Container>
+             </Container>
 
-
+        </Providers>
      </div>
        
       )

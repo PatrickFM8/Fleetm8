@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <Client>
       <main
-        className={`flex min-h-screen flex-col items-center justify-between ${roboto.className}`}
+        className={`surpresshydration flex min-h-screen flex-col items-center justify-between ${roboto.className}`}
       >
 
         <Head>

@@ -8,6 +8,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Providers from "@/components/Providers";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { SlugInput } from "sanity";
 //import BlockContent from '@sanity/block-content-to-react';
 
 const Blog = () => {
@@ -26,34 +27,35 @@ const Blog = () => {
         <div className="container mx-auto p-4">
           <h1 className="text-4xl font-bold mb-4">Latest Blogs</h1>
         </div>
-        {posts.map((post, index) => (
+        
+        {posts?.map((post) => (
+          <div key={post._id}>
           <div
-            key={index}
+            
             className="mx-auto p-4 border-b border-gray-300
               grid sm:grid-cols-1 md:grid-cols-2 gap-8
               "
           >
-            {/* console.log(post?._id); */}
+           
             
             <h2 className="text-2xl font-bold mb-2">
             <Link
-              href={{
-                pathname: `/blog/${index}`,
-                query: {
-                  id: post?._id,
-                  title: post?.title,
-                  //body: JSON.stringify(post),
-                  body: post?.body,
-                  createdAT: post?._createdAt,
-                
-                },
-              }}
-              className="text-black hover:text-gray-600 text-3xl"
-              >
+                href={{
+                    pathname: `/blog/${post.slug}`,
+                    query: {
+                      slug: post?.slug,
+                      title: post?.title,
+                      body: post?.body,
+                      createdAT: post?._createdAt, 
+                    },
+                  }}
+                className="text-black hover:text-gray-600 text-3xl">
                 <strong>{post?.title}</strong>
               </Link>
+
               </h2>
 
+                <h2>{post._id}</h2>
               <CardContainer className="inter-var">
                  <CardBody className="bg-[#f4f1ea] relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
                   
@@ -73,19 +75,8 @@ const Blog = () => {
                 </CardBody>
               </CardContainer>
 
-          {/*   <Image
-              src={urlForImage(post?.mainImage.asset)}
-              alt="Picture"
-              width={200}
-              height={200}
-              quality={80}
-              priority={false}
-              placeholder={"empty"}
-              className="w-full h-full md:w-auto md:h-auto object-cover"
-            /> */}
-
-
             <p>{post?.body}</p>
+          </div>
           </div>
         ))}
       </Container>

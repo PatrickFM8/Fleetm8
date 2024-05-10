@@ -5,7 +5,7 @@ import { Feature } from "@/lib/sanityTypes";
 import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/image";
 //import { ParallaxScroll } from "./ui/parallax-scroll";
-import { CardBody, CardContainer, CardItem } from "./ui/3d-card"
+import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 
 interface HeroSectionProps {
   children?: React.ReactNode;
@@ -13,6 +13,8 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ heroSection }) => {
+
+
   return (
     <div className={`mt-4`}>
       <div
@@ -54,21 +56,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroSection }) => {
 
             {/* Headline and Button */}
         <div className="md:w-1/2 py-4  items-center">
-          <h1 className="font-medium text-2xl">{heroSection?.title}</h1>
-          <h1 className="font-medium text-2xl">{heroSection?.subtitle} </h1>
+          <h1 className="text-2xl font-bold">{heroSection?.title}</h1>
+          <h1 className="text-xl font-bold mt-2">Subtitle: {heroSection?.subtitle} </h1>
           <br />
           <p className="">{heroSection?.summary}</p>
           <br />
           <br />
           <Link
             href={{
-              pathname: "/feature/${feature._id}",
+              pathname: `/hero/${heroSection?._id}`,
               query: {
                 id: heroSection?._id,
                 title: heroSection?.title,
                 summary: heroSection?.summary,
                 createdAT: heroSection?._createdAt,
                 subtitle: heroSection?.subtitle,
+                //imageUrl: urlForImage(heroSection?.image.asset),
               },
             }}
             className="bg-black text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm"

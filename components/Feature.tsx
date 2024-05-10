@@ -33,7 +33,7 @@ const FeatureComponent: React.FC<FeatureProps> = ({ feature }) => {
         
                  <CardItem
                     translateZ="100"
-                    rotateX={20}
+                    rotateX={10}
                     rotateZ={-10}
                     className="w-full mt-4"
                   >
@@ -56,8 +56,8 @@ const FeatureComponent: React.FC<FeatureProps> = ({ feature }) => {
         </div>
         {/* Awesome Headline and Button */}
         <div className="md:w-1/2 py-4  items-center">
-          <h1 className="font-medium text-2xl">{feature?.title}</h1>
-          <h1 className="font-medium text-2xl">{feature?.subtitle} </h1>
+          <h1 className="text-2xl font-bold">{feature?.title}</h1>
+          <h1 className="font-medium text-xl mt-2">Subtitle: {feature?.subtitle} </h1>
           <br />
           <p className="">{feature?.summary}</p>
           <br />
