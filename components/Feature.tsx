@@ -64,13 +64,13 @@ const FeatureComponent: React.FC<FeatureProps> = ({ feature }) => {
           <br />
           <Link
             href={{
-              pathname: "/feature/${feature._id}",
+              pathname: `/features/${feature._id}`,
               query: {
                 id: feature._id,
-                title: feature.title,
+               /*  title: feature.title,
                 summary: feature.summary,
                 createdAT: feature._createdAt,
-                subtitle: feature.subtitle,
+                subtitle: feature.subtitle, */
               },
             }}
             className="bg-black text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm"
