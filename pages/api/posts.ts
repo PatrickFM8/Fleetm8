@@ -6,6 +6,7 @@ import { client } from "@/sanity/lib/client";
 const query = groq`
 *[_type == "post"]{
   title,
+  _id,
   mainImage,
   description,
   _createdAt,
