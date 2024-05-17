@@ -15,10 +15,6 @@ export default async function handler(
 
   //http://localhost:3000/api/postById?id=709309b1-289c-44ef-a840-7e2779f33a5d
 
- /*  const query = groq`
-    *[_type == "post" && _id == "${id}"][0] 
-  `; */
-
    const query = groq`
   *[_type == "post" && _id == "${id}"][0] {
     title,

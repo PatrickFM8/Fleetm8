@@ -67,11 +67,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroSection }) => {
               pathname: `/hero/${heroSection?._id}`,
               query: {
                 id: heroSection?._id,
-                title: heroSection?.title,
-                summary: heroSection?.summary,
-                createdAT: heroSection?._createdAt,
-                subtitle: heroSection?.subtitle,
-                //imageUrl: urlForImage(heroSection?.image.asset),
               },
             }}
             className="bg-black text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm"
