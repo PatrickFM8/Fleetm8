@@ -10,6 +10,7 @@ import Navbar from '@/components/Navbar';
 import Providers from '@/components/Providers';
 import { useHeroSectionById } from '@/hooks/useHeroSectionById';
 import Head from 'next/head';
+import Container from '@/components/Container';
 
 
 const MyHero = () => {
@@ -28,7 +29,7 @@ const MyHero = () => {
         </Head>
         <Providers>
         <Navbar />
-      
+      <Container>
       <div className='flex flex-col justify-center items-center'>
         
         {hero ? (
@@ -59,6 +60,7 @@ const MyHero = () => {
           <p>Loading...</p>
         )}
       </div>
+      </Container>
       </Providers>
       </div>
     );

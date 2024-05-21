@@ -5,6 +5,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import Navbar from "@/components/Navbar";
 import Head from 'next/head';
 import Providers from "@/components/Providers";
+import Container from "@/components/Container";
 
 
 function FeatureIndex() {
@@ -25,14 +26,16 @@ function FeatureIndex() {
       </Head>
       <Providers>
       <Navbar />
-    
-    <div className='flex flex-col justify-center items-center'>
-      
-      {feature ? (
-        <div className="md:w-1/2 py-4  items-center">
-        <h1 className="text-2xl font-bold flex justify-center items-center h-full mb-8">{feature?.title}</h1>
 
-        {feature.image && (
+      <Container>
+    
+      <div className='flex flex-col justify-center items-center'>
+      
+        {feature ? (
+          <div className="md:w-1/2 py-4  items-center">
+          <h1 className="text-2xl font-bold flex justify-center items-center h-full mb-8">{feature?.title}</h1>
+
+          {feature.image && (
             <Image
               src={urlForImage(feature.image.asset)}
               alt="Picture"
@@ -56,6 +59,7 @@ function FeatureIndex() {
         <p>Loading...</p>
       )}
     </div>
+    </Container>
     </Providers>
     </div>
   );
