@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
 
           <div>
             <Button variant="secondary" className="ml-8 float-right">
-              CTA BUTTON{" "}
+              Try Now{" "}
             </Button>
           </div>
         </div>
