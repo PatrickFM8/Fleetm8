@@ -8,6 +8,7 @@ import { heroSection } from "./schemaTypes/heroSection";
 import { navitems } from "./schemaTypes/navitems";
 import { testimonials } from "./schemaTypes/testimonials";
 import { faqs } from "./schemaTypes/faqs";
+import {subscriber} from "./schemaTypes/subscriber";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -20,5 +21,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     navitems,
     testimonials,
     faqs,
+    subscriber,
   ],
 };

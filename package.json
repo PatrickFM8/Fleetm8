@@ -11,13 +11,15 @@
   "dependencies": {
     "@next/font": "^14.2.2",
     "@radix-ui/react-slot": "^1.0.2",
+    "@react-three/drei": "^9.105.6",
+    "@react-three/fiber": "^8.16.6",
     "@sanity/image-url": "^1.0.2",
     "@sanity/orderable-document-list": "^1.2.1",
     "@sanity/vision": "^3.38.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.0.2",
-    "framer-motion": "^11.1.7",
+    "framer-motion": "^11.2.6",
     "gsap": "^3.12.5",
     "lucide-react": "^0.372.0",
     "next": "14.2.1",
@@ -29,7 +31,9 @@
     "sanity": "^3.38.0",
     "styled-components": "^6.1.8",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.164.1",
+    "three-globe": "^2.31.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",

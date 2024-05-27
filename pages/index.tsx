@@ -16,6 +16,11 @@ import CallToAction from "@/components/CallToAction";
 import Head from 'next/head';
 import { Roboto } from "next/font/google";
 import Providers from "@/components/Providers";
+import {Globe} from "@/components/ui/globe";
+import dynamic from 'next/dynamic';
+//import { data } from '@/data/globe.json'; 
+import NewsletterForm from '../components/NewsletterForm';
+
 
 //const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +30,9 @@ const roboto = Roboto({
 })
 
 export const revalidate = 60;
+
+/* // Dynamically import the Globe component to avoid SSR issues
+const Globe = dynamic(() => import('../components/ui/globe'), { ssr: false }); */
 
 export default function Home() {
   const features = useFeatures();
@@ -59,6 +67,11 @@ export default function Home() {
           <Faq />
           {/* Render testimonials section */}
           <Tesimonials testimonials={testimonials} />
+
+           {/* <Globe />   */}
+          
+           <NewsletterForm />
+          
           <Footer />
         </Container>
         </Providers>
