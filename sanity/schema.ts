@@ -9,6 +9,7 @@ import { navitems } from "./schemaTypes/navitems";
 import { testimonials } from "./schemaTypes/testimonials";
 import { faqs } from "./schemaTypes/faqs";
 import {subscriber} from "./schemaTypes/subscriber";
+import {contact} from "./schemaTypes/contact";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -22,5 +23,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     testimonials,
     faqs,
     subscriber,
+    contact,
   ],
 };

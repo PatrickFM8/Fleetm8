@@ -1,9 +1,9 @@
 
 import { defineField, defineType } from 'sanity';
 
-export const subscriber = defineType({
-  name: 'subscriber',
-  title: 'Subscriber',
+export const contact = defineType({
+  name: 'contact',
+  title: 'Contact',
   type: 'document',
   fields: [
     defineField({
@@ -17,9 +17,14 @@ export const subscriber = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'password',
-      title: 'Password',
+      name: 'phone',
+      title: 'Phone',
       type: 'string',
     }),
+    defineField({
+        name: "body",
+        title: "Body",
+        type: "text",
+      }),
   ],
 });

@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
                 <Link
                   key={navitem?._id}
                   href={navitem?.url}
-                  className="text-white hover:text-gray-300"
+                  className="text-white text-2xl hover:text-gray-300"
                 >
                   {navitem?.title}
                 </Link>

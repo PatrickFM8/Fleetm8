@@ -12,30 +12,31 @@ const client = createClient({
 
 export default async function handler(req:any, res:any) {
   if (req.method === 'POST') {
-    const { name, email, password } = req.body;
+    const { name, email, phone, message } = req.body;
 
     // Log the incoming request body for debugging
     console.log('Incoming request body:', req.body);
 
     try {
       const result = await client.create({
-        _type: 'subscriber',
+        _type: 'contact',
         name,
         email,
-        password,
+        phone,
+        body: message,
 
       });
 
       // Log the result from the Sanity API for debugging
       console.log('Sanity create result:', result);
 
-      res.status(200).json({ message: 'Subscriber added successfully' });
+      res.status(200).json({ message: 'Contact form submited successfully' });
     } catch (error:any) {
       // Log the error message and stack trace
       console.error('Error adding subscriber:', error.message);
       console.error(error.stack);
 
-      res.status(500).json({ error: 'Error adding subscriber' });
+      res.status(500).json({ error: 'Error adding contact form' });
     }
   } else {
     res.status(405).json({ error: 'Method not allowed' });
