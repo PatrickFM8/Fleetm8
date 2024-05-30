@@ -15,6 +15,8 @@ import Navbar from "@/components/Navbar";
 import Providers from "@/components/Providers";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
+import Footer from "@/components/Footer";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 
 export default function BlogPage() {
@@ -39,7 +41,7 @@ export default function BlogPage() {
 
                         {/* Conditional rendering based on whether post data is available */}
                          {post ? ( 
-                            <div className="md:w-1/2 py-4  items-center">
+                            <div className=" py-4  items-center">
 
                                 <Breadcrumb className="mt-4">
                                     <BreadcrumbList>
@@ -60,20 +62,28 @@ export default function BlogPage() {
                                 <div>
                                     <p className="flex justify-center text-2xl font-bold pt-8">{post.title}</p>
                                     {post.mainImage && (
-                                    <Image
-                                         src={urlForImage(post?.mainImage.asset)}
-                                         alt={post.title}
-                                         width={500}
-                                         height={500}
-                                         className="h-60 w-full my-6 object-cover rounded-xl group-hover/card:shadow-xl"
-                                         priority={false}
-                                         quality={80}
-                                         placeholder={"empty"}
-                                    />
+                                    <CardContainer className="inter-var">
+                                    <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-0 ">
+                                     
+                                       <CardItem translateZ="100" className="w-full mt-0">
+                                           <Image
+                                               src={urlForImage(post?.mainImage.asset)}
+                                               alt={post.title}
+                                               width={500}
+                                               height={500}
+                                               className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                                               priority={false}
+                                               quality={80}
+                                               placeholder={"empty"}
+                                             />
+                                         </CardItem>
+                           
+                                   </CardBody>
+                                 </CardContainer>
                                     )}
-                                    <p className="flex justify-center pt-2">Created: {post._createdAt}</p>
+                                    <p className="flex justify-center">Created: {post._createdAt}</p>
                                     <br />
-                                    <p className="pt-8">{post.body}</p>
+                                    <p className="pt-6">{post.body}</p>
                                 </div>
                             </div>
                          ) : (
@@ -81,6 +91,7 @@ export default function BlogPage() {
                         )} 
                     </div>
                 </Container>
+                <Footer />
             </Providers>
         </>
     );
