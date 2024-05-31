@@ -75,6 +75,7 @@ const Contact: React.FC = () => {
                 <input
                   type="text"
                   name="name"
+                  placeholder='Your Name'
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
@@ -87,6 +88,7 @@ const Contact: React.FC = () => {
                 <input
                   type="email"
                   name="email"
+                  placeholder='Your Email'
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
@@ -99,6 +101,7 @@ const Contact: React.FC = () => {
                 <input
                   type="tel"
                   name="phone"
+                  placeholder='Your phone number'
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
@@ -111,6 +114,7 @@ const Contact: React.FC = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
+                  placeholder='Text'
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                   
                 ></textarea>
@@ -126,9 +130,11 @@ const Contact: React.FC = () => {
             </form>
           </div>
         </div>
-        <p className="mt-8 mx-4 text-center">hello@fleetm8.se</p>
-        <p className="text-center">Stockholm</p>
-        <p className="text-center">© 2022</p>
+        <div className='w-full my-4 shadow'>
+            <p className="mt-8 mx-4 text-center">hello@fleetm8.se</p>
+            <p className="text-center">Stockholm</p>
+            <p className="text-center">© 2022</p>
+        </div>
       </Providers>
     </div>
   );
