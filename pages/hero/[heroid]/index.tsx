@@ -11,6 +11,8 @@ import Providers from '@/components/Providers';
 import { useHeroSectionById } from '@/hooks/useHeroSectionById';
 import Head from 'next/head';
 import Container from '@/components/Container';
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import Footer from '@/components/Footer';
 
 
 const MyHero = () => {
@@ -33,20 +35,28 @@ const MyHero = () => {
       <div className='flex flex-col justify-center items-center'>
         
         {hero ? (
-          <div className="md:w-1/2 py-4  items-center">
+          <div className="py-4  items-center">
           <h1 className="text-2xl font-bold flex justify-center items-center h-full mb-8">{hero?.title}</h1>
   
           {hero.image && (
-              <Image
-                src={urlForImage(hero.image.asset)}
-                alt="Picture"
-                width={200}
-                height={200}
-                quality={80}
-                priority={false}
-                placeholder="empty"
-                className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl my-6"
-              />
+              <CardContainer className="inter-var">
+              <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-0 ">
+               
+                 <CardItem translateZ="100" className="w-full mt-0">
+                     <Image
+                         src={urlForImage(hero?.image.asset)}
+                         alt={hero.title}
+                         width={500}
+                         height={500}
+                         className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                         priority={false}
+                         quality={80}
+                         placeholder={"empty"}
+                       />
+                   </CardItem>
+     
+             </CardBody>
+           </CardContainer>
             )}
   
           <h1 className="font-medium text-xl mb-6">Subtitle: {hero?.subtitle} </h1>
@@ -61,6 +71,7 @@ const MyHero = () => {
         )}
       </div>
       </Container>
+      <Footer />
       </Providers>
       </div>
     );

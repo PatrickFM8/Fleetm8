@@ -6,6 +6,9 @@ import Navbar from "@/components/Navbar";
 import Head from 'next/head';
 import Providers from "@/components/Providers";
 import Container from "@/components/Container";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import Footer from '@/components/Footer';
+import { client } from '../../../sanity/lib/client';
 
 
 function FeatureIndex() {
@@ -32,20 +35,33 @@ function FeatureIndex() {
       <div className='flex flex-col justify-center items-center'>
       
         {feature ? (
-          <div className="md:w-1/2 py-4  items-center">
-          <h1 className="text-2xl font-bold flex justify-center items-center h-full mb-8">{feature?.title}</h1>
+          <div>
+          <h1 className="text-2xl font-bold flex justify-center items-center h-full mt-8">{feature?.title}</h1>
 
           {feature.image && (
-            <Image
-              src={urlForImage(feature.image.asset)}
-              alt="Picture"
-              width={200}
-              height={200}
-              quality={80}
-              priority={false}
-              placeholder="empty"
-              className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl my-6"
-            />
+             <CardContainer className="inter-var">
+             <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark: w-auto sm:w-[30rem] h-auto rounded-xl-6 ">
+       
+                <CardItem
+                   translateZ="100"
+                   rotateX={10}
+                   rotateZ={-10}
+                   className="w-full mt-4"
+                 >
+                   <Image
+                     src={urlForImage(feature?.image.asset)}
+                     alt="Picture"
+                     width={200}
+                     height={200}
+                     quality={80}
+                     priority={false}
+                     placeholder={"empty"}
+                     className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                   />
+                 </CardItem>
+       
+             </CardBody>
+          </CardContainer>
           )}
 
         <h1 className="font-medium text-xl mb-6">Subtitle: {feature?.subtitle} </h1>
@@ -60,6 +76,9 @@ function FeatureIndex() {
       )}
     </div>
     </Container>
+    <div className='mt-8'>
+        <Footer />
+    </div>
     </Providers>
     </div>
   );
