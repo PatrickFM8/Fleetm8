@@ -20,6 +20,7 @@ import {Globe} from "@/components/ui/globe";
 import dynamic from 'next/dynamic';
 //import { data } from '@/data/globe.json'; 
 import NewsletterForm from '../components/NewsletterForm';
+import Customers from "@/components/Customers";
 
 
 //const inter = Inter({ subsets: ["latin"] });
@@ -56,6 +57,7 @@ export default function Home() {
           {/* Render hero section if available */}
           {heroSection && <HeroSection heroSection={heroSection[0]} />}
           {/* Render 3 steps */}
+          
           <Steps />
           {/* Render features */}
           {features?.map((feature) => (
@@ -71,8 +73,8 @@ export default function Home() {
            {/* <Globe />   */}
           
            <NewsletterForm />
-          
-          <Footer />
+           <Customers />
+           <Footer />
         </Container>
         </Providers>
       </main>
