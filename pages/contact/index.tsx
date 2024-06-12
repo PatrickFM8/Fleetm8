@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
           <div className="md:w-1/2 p-6">
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
-                <label className="block text-gray-700">Names<span className='text-red-500'>*</span></label>
+                <label className="block text-gray-700">Name<span className='text-red-500'>*</span></label>
                 <input
                   type="text"
                   name="name"
@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
               <div>
-                <label className="block text-gray-700">Phone:</label>
+                <label className="block text-gray-700">Phone Number</label>
                 <input
                   type="tel"
                   name="phone"

@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from "next/image";
-import logo1 from '../public/logo1.jpg'; // Import your logo images
-import logo2 from '../public/logo2.png';
-import logo3 from '../public/logo3.png';
-import logo from '../public/logo.png';
-import logo5 from '../public/logo5.jpg';
+import logo1 from '../public/logoven.png'; // Import your logo images
+import logo2 from '../public/unnamed.png';
+import logo3 from '../public/sjomanshus.jpg';
+import logo4 from '../public/AlmiMoreHeight.png';
+import logo5 from '../public/ssebl-300x300.jpg';
 
-const logos = [logo1, logo2, logo3, logo, logo5]; // Array of logo images
+const logos = [logo1, logo2, logo3, logo4, logo5]; // Array of logo images
 
 const MovingLogos = () => {
   const gap = 20; // Adjust the gap between logos
