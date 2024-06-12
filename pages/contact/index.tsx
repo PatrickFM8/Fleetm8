@@ -1,7 +1,10 @@
+
 import React, { useState } from 'react';
 import { z } from 'zod';
 import Navbar from '@/components/Navbar';
 import Providers from '@/components/Providers';
+import Container from '@/components/Container';
+
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -58,11 +61,11 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+    <div >
       <Providers>
         <Navbar />
-        
-        <div className="w-full mt-8 max-w-4xl bg-white shadow-md rounded-lg overflow-hidden md:flex">
+        <Container>
+         <div className="w-full mt-8 bg-white shadow-md rounded-lg overflow-hidden md:flex"> 
           <div className="md:w-1/2 p-6 bg-blue-600 text-white">
             <h2 className="text-3xl font-bold mb-8">Get in touch directly</h2>
             <p className="mb-8">Send an email using this form and we will get back to you with more details!</p>
@@ -126,15 +129,16 @@ const Contact: React.FC = () => {
               >
                 Submit
               </button>
-              {status && <p className="mt-4 text-center">{status}</p>}
+              {status && <p className="mt-4 text-center bg-green-100 text-green-700">{status}</p>}
             </form>
-          </div>
+           </div> 
         </div>
         <div className='w-full my-4 shadow'>
             <p className="mt-8 mx-4 text-center">hello@fleetm8.se</p>
             <p className="text-center">Stockholm</p>
             <p className="text-center">© 2022</p>
         </div>
+        </Container>
       </Providers>
     </div>
   );
